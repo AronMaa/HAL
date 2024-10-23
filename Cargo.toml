@@ -1,0 +1,16 @@
+[package]
+name = "Test"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+panic-halt = "0.2"
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+
+[target.avr-unknown-gnu-atmega328]
+linker = "C:/WinAVR-20100110/bin/avr-gcc.exe"
