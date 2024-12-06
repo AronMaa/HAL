@@ -1,6 +1,12 @@
 #![no_std]
 #![no_main]
 
+#[cfg(feature = "atmega328p")]
+use spi::atmega328p::{init_spi, send_data, receive_data};
+
+#[cfg(feature = "cortex_m7")]
+use spi::cortex_m7::{init_spi, send_data, receive_data};
+
 mod panic;
 mod gpio;
 mod usart;
@@ -36,6 +42,13 @@ pub extern "C" fn main() {
 
     // Receive data (for demonstration, in a real application this might loop or process continuously)
     let received = Atmega328pUsart::receive();
+
+    println!("Démarrage du programme HAL...");
+    init_spi();
+
+    send_data(0x55); // Envoi de la donnée 0x55
+    let received = receive_data(); // Réception de données
+    println!("Données reçues : {}", received);
 }
 
 // Main function for MCU 1 (Atmega328p) - Transmitter
