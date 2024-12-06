@@ -3,8 +3,14 @@ name = "Test"
 version = "0.1.0"
 edition = "2021"
 
+[features]
+atmega328p = []
+cortex_m7 = [] 
+
 [dependencies]
-panic-halt = "0.2"
+panic-halt = "0.2"   
+cortex-m = "0.7"   
+avr-device = "0.4" 
 
 [profile.dev]
 panic = "abort"
