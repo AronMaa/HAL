@@ -44,6 +44,15 @@ pub extern "C" fn main() {
     let received = Atmega328pUsart::receive();
 
     println!("Démarrage du programme HAL...");
+    /*
+    [CORRECTION SPI] (Don't hesitate to remove this part)
+    Since you are working without the standard crate, you cannot use println! macro.
+    Eventually, you could use hprintln! macro for certain target (CORTEX M7 for example), but not for the ATMEGA328P.
+    This imply you do conditionnal compilation, to use hprintln! macro only if you compile your project for a CORTEX M7 target for example.
+
+    But it seemed that you decide to compile your project differently, by using multiple main() function? Please give instruction in your README if the user has to modify the entry point of your project according to the target (it seemsed to by the case here).
+    (if you do so, it won't solve the println! error, and you still cannot compile hprintln! macro for your ATMEGA328P target. Don't hesitate to send me an email if you need help)
+    */
     init_spi();
 
     send_data(0x55); // Envoi de la donnée 0x55
