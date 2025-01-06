@@ -1,4 +1,6 @@
+#[cfg(feature = "atmega328p")]
 pub mod atmega328p;
+#[cfg(feature = "cortex_m7")]
 pub mod cortex_m7;
 
 pub trait Spi {
