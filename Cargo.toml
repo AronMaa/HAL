@@ -10,7 +10,8 @@ cortex_m7 = []
 [dependencies]
 panic-halt = "0.2"   
 cortex-m = "0.7"   
-avr-device = "0.4" 
+avr-device = "0.4"
+embedded-hal = "0.2"
 
 [profile.dev]
 panic = "abort"
