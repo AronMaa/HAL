@@ -35,5 +35,6 @@ impl Atmega328pSpi {
             while SPI.spsr.read().bits() & (1 << 7) == 0 {}  // Wait for SPI to receive data
             data = SPI.spdr.read().bits();  // Read received data
         }
+        data
     }
 }
