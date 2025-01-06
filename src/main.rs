@@ -55,7 +55,7 @@ pub extern "C" fn main() {
     };
 
     // SPI communication
-    init_spi();
+    init_spi(true, 115200);
     send_data(0x55);
     match receive_data() {
         data => debug_log(&format!("SPI data received: {}", data)),
