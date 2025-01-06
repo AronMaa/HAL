@@ -12,9 +12,11 @@ use usart::cortex_m7::CortexM7Usart;
 mod panic;
 mod gpio;
 mod usart;
+mod spi;
 
 use gpio::{DigitalPin, Port, PinMode};
 use usart::Usart;
+use spi::Spi;
 
 #[no_mangle]
 pub extern "C" fn main() {
